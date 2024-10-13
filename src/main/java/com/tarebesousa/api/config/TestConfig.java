@@ -1,8 +1,7 @@
 package com.tarebesousa.api.config;
 
 import com.tarebesousa.api.entities.User;
-import com.tarebesousa.api.repositories.Userrepository;
-import com.tarebesousa.api.resources.UserResource;
+import com.tarebesousa.api.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +15,7 @@ public class TestConfig implements CommandLineRunner {
 
     //Resolvendo dependencias
     @Autowired
-    private Userrepository userRepository;
+    private UserRepository userRepository;
 
     //Tudo dentro desse metodo vai ser iniciado dentro do metodo principal
     @Override
