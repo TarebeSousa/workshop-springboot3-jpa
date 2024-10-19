@@ -21,7 +21,8 @@ public class Product implements Serializable {
     private String imgUrl;
 
     //Utilizando o Set para que nenhum produto tenha a mesma categoria mais de uma vez
-    @Transient
+    @ManyToMany
+    @JoinTable(name="tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name="category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product(){

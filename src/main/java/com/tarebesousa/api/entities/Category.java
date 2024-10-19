@@ -1,5 +1,6 @@
 package com.tarebesousa.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,8 +17,10 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
     //Utilizando o Set para que nenhum produto tenha a mesma categoria mais de uma vez
-    @Transient
     private Set<Product> products = new HashSet<>();
 
     public Category(){
