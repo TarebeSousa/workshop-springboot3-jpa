@@ -1,14 +1,8 @@
 package com.tarebesousa.api.config;
 
-import com.tarebesousa.api.entities.Category;
-import com.tarebesousa.api.entities.Order;
-import com.tarebesousa.api.entities.Product;
-import com.tarebesousa.api.entities.User;
+import com.tarebesousa.api.entities.*;
 import com.tarebesousa.api.entities.enums.OrderStatus;
-import com.tarebesousa.api.repositories.CategoryRepository;
-import com.tarebesousa.api.repositories.OrderRepository;
-import com.tarebesousa.api.repositories.ProductRepository;
-import com.tarebesousa.api.repositories.UserRepository;
+import com.tarebesousa.api.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +27,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     //Tudo dentro desse metodo vai ser iniciado dentro do metodo principal
     @Override
@@ -60,6 +57,13 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+        orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
 
         p1.getCategories().add(cat2);
         p2.getCategories().add(cat1);
