@@ -1,5 +1,6 @@
 package com.tarebesousa.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -17,6 +18,7 @@ public class Payment implements Serializable {
     private Instant moment;
 
     //Anotação deve ser assim na classe dependente
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
