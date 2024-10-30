@@ -18,7 +18,8 @@ Trata-se de um projeto de backend para um sistema de venda de produtos, a aplica
 
 # Como executar o projeto
 
-## clonar repositório
+```bash
+# clonar repositório
 git clone https://github.com/TarebeSousa/workshop-springboot3-jpa
 
 # Autor
